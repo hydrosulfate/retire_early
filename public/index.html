@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>page title</title>
+        <!-- data about data -->
+        <meta charset="utf-8">
+        <meta name="author" content="Zhisheng, Zhongwei, Yidan">
+        <meta name="description" content="index page fore retire_early app">
+
+        <!-- external source file: own js file must be at bottom -->
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <!-- firebase set up script -->
+        <script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyCdMHNw3Bfat-ZU4STKRqi2M90WBwC6k1w",
+                authDomain: "retire-early.firebaseapp.com",
+                databaseURL: "https://retire-early.firebaseio.com",
+                projectId: "retire-early",
+                storageBucket: "retire-early.appspot.com",
+                messagingSenderId: "691990546510"
+            };
+            firebase.initializeApp(config);
+        </script>
+        <!-- my own script -->
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+    <body>
+        <h1>This is my test page</h1>
+        <input type="button" value="trigger" id="trigger">
+        <p id="des">end of file</p>
+
+        <form name="myform" id="myform">
+            <input type="text" name="username" id="username">
+            <input type="button" value="greet" class="btn">
+        </form>
+    </body>
+</html>
