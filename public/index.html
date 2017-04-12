@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>page title</title>
         <!-- data about data -->
         <meta charset="utf-8">
         <meta name="author" content="Zhisheng, Zhongwei, Yidan">
         <meta name="description" content="index page fore retire_early app">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- external source file: own js file must be at bottom -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- above is CDN for twitter bootstrap 3.37 -->
         <link rel="stylesheet" href="css/index.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <!-- firebase set up script -->
@@ -28,13 +31,82 @@
         <script type="text/javascript" src="js/index.js"></script>
     </head>
     <body>
-        <h1>This is my test page</h1>
-        <input type="button" value="trigger" id="trigger">
-        <p id="des">end of file</p>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Retire Early</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <form class="navbar-form navbar-right">
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#login">Log in</button>
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#signup">Sign up</button>
+                    </form>
+                </div><!--/.navbar-collapse -->
+            </div>
+        </nav>
 
-        <form name="myform" id="myform">
-            <input type="text" name="username" id="username">
-            <input type="button" value="greet" class="btn">
-        </form>
-    </body>
+        <div class="container">
+            <h1>Some descritption of our app</h1>
+            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        </div>
+
+        <div class="container">
+            <hr>
+            <footer>
+                <p>&copy; 2016 Company, Inc.</p>
+            </footer>
+        </div> 
+
+        <!-- Modal -->
+        <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    log in
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    sign up
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      </body>
 </html>
