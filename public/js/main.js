@@ -27,6 +27,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         // User is signed in.
         $("#user").html(user.email.split("@")[0]+" <span class='caret'></span>");
+        $("#user-dropdown").html(user.email.split("@")[0]);
     } else {
         // User is signed out.
         window.location = "index.html";
