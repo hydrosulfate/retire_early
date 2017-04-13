@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>page title</title>
+        <!-- data about data -->
+        <meta charset="utf-8">
+        <meta name="author" content="Zhisheng, Zhongwei, Yidan">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- external source file: own js file must be at bottom -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- above is CDN for twitter bootstrap 3.37 -->
+        <link rel="stylesheet" href="css/main.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <!-- firebase set up script -->
+        <script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyCdMHNw3Bfat-ZU4STKRqi2M90WBwC6k1w",
+                authDomain: "retire-early.firebaseapp.com",
+                databaseURL: "https://retire-early.firebaseio.com",
+                projectId: "retire-early",
+                storageBucket: "retire-early.appspot.com",
+                messagingSenderId: "691990546510"
+            };
+            firebase.initializeApp(config);
+        </script>
+        <!-- my own script -->
+        <script type="text/javascript" src="js/main.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Retire Early</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <!-- add drop down menu here -->
+                </div><!--/.navbar-collapse -->
+            </div>
+        </nav>
+
+        <div class="container">
+            <h1>main page after log in</h1>
+        </div>
+
+        <div class="container">
+            <hr>
+            <footer>
+                <p>&copy; 2016 Company, Inc.</p>
+            </footer>
+        </div> 
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      </body>
+</html>
