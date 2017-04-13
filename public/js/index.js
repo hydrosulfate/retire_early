@@ -22,7 +22,7 @@ var MODULE = (function(){
             projectId: "retire-early",
             storageBucket: "retire-early.appspot.com",
             messagingSenderId: "691990546510"
-        },
+        }
     };
 })();
 
