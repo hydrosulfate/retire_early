@@ -1,35 +1,102 @@
-var SCRIPT={};
+// Module Pattern
+var MODULE = (function(){
 
-SCRIPT.turn_red=function(){
-    $('#des').css({'color':'red', 'font-size':'20px'}); 
-} 
+    // private session
+    function _privateMethod(){}// for demo purpose
 
-SCRIPT.turn_black=function(){
-    $('#des').css({'color':'black', 'font-size':'12px'}); 
-} 
-
-
-
-SCRIPT.form_btn=function(){
-    var name = document.myform.username.value;
-    if(name != '')
-        alert('Hello '+name+'!');
-    else
-        alert('Dont be shy');
+    // public session in return
+    return {
+        // variable
+        variable_demo: 1,
         
-}
+        // method
+        function_demo: function(){
+            _privateMethod();
+        },
 
-$(function(){
-    $('#trigger').on('mousedown', SCRIPT.turn_red);
-//    $('#trigger').click(SCRIPT.turn_red);
-    $('#trigger').on('mouseup', SCRIPT.turn_black);
-    
-    //faster perfomance
-    $('.btn').on('click', SCRIPT.form_btn);            //direct event: new added .btn do NOT update
-//    $(document.body).on('click', '.btn', SCRIPT.form_btn);   //delegated event: new added .btn will update
-    
-    
-    (function(){
-        console.log("self-Executing function");
-    })();
+        // object
+        config: {
+            apiKey: "AIzaSyCdMHNw3Bfat-ZU4STKRqi2M90WBwC6k1w",
+            authDomain: "retire-early.firebaseapp.com",
+            databaseURL: "https://retire-early.firebaseio.com",
+            projectId: "retire-early",
+            storageBucket: "retire-early.appspot.com",
+            messagingSenderId: "691990546510"
+        },
+    };
+})();
+
+// Initialize Firebase
+firebase.initializeApp(MODULE.config);
+
+// Event handler
+// log in with validation
+$(".form-login").on("submit", function(event){
+    event.preventDefault();
+
+    var email = document.getElementById("login_email").value;
+    var password = document.getElementById("login_password").value;
+    var promise = firebase.auth().signInWithEmailAndPassword(email,password);
+    promise.catch(function(e) {
+        var errorCode = e.code;
+        var errorMessage = e.message;
+
+        /*Display Error Messages*/
+        if (errorCode == 'auth/wrong-password') {
+            $('.err-msg').html("Invalid password!");
+        }
+        else if(errorCode == 'auth/invalid-email'){
+            $('.err-msg').html("Invalid email");
+        }
+        else if(errorCode == 'auth/user-not-found'){
+            $('.err-msg').html("User not found!");
+        }
+        else {
+            $('.err-msg').html(errorMessage);
+        }
+
+        $(".err-box").css("display", "block");
+    });
+});
+
+// sign up with validation
+$(".form-signup").on("submit", function(event){
+    event.preventDefault();
+    var email = document.getElementById("signup_email").value;
+    var password = document.getElementById("signup_password").value;
+    var promise = firebase.auth().createUserWithEmailAndPassword(email,password);
+    promise.catch(function(e) {
+        var errorCode = e.code;
+        var errorMessage = e.message;
+
+        /*Display Sign Up error messages*/
+        if (errorCode == 'auth/email-already-in-use') {
+            $('.err-msg').html("Email already in use");
+        }
+        else if(errorCode == 'auth/invalid-email'){
+            $('.err-msg').html("Invalid email");
+        }
+        else if(errorCode == 'auth/weak-password'){
+            $('.err-msg').html("Password too weak!");
+        }
+        else {
+            $('.err-msg').html(errorMessage);
+        }
+        
+        $(".err-box").css("display", "block");
+    });
+});
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        // User is signed in.
+        window.location = "main.html";
+    } else {
+        // User is signed out.
+        //window.location = "index.html";
+    }
+});
+
+$(".hide-alert").focusin(function(){
+    $(".err-box").css("display", "none");
 });
